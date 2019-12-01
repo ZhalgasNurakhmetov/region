@@ -1,18 +1,41 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { OrderComponent } from './order/order.component';
+import { FormsModule } from '@angular/forms';
+import { from } from 'rxjs';
+import { StartComponent } from './start/start.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { LoadingComponent } from './loading/loading.component';
+import { LoadingScreenInterceptor } from './loading.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OrderComponent,
+    StartComponent,
+    OrderDetailsComponent,
+    LoadingComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }),
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingScreenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

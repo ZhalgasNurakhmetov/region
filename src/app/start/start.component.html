@@ -1,0 +1,17 @@
+<div class="startContent">
+  <div class="taxiService">
+    <p><span style="font-weight: 1000; font-size: 60px;">REGION </span> <span style="font-weight: 800; font-size: 36px;">taxi service</span></p>
+  </div>
+  <div class="language">
+  </div>
+  <div class="official">
+    <p>ОФИЦИАЛЬНОЕ ТАКСИ</p>
+  </div>
+  <div class="phoneInput">
+    <input #number id="numberP" on-focus="onInputFocus()" [(ngModel)]="phone" class="input" placeholder="Введите номер телефона" required>
+  </div>
+  <div class="simple-keyboard" id="numeric"></div>
+  <div class="createOrder">
+    <button class="createButton" routerLink="/order" routerLinkActive="active" [disabled]="phone.length < 11" (click)="phoneNumber()">Оформить заказ</button>
+  </div>
+</div>

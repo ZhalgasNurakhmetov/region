@@ -1,0 +1,20 @@
+<div class="responseContent">
+  <div class="carDetails">
+    <p id="attrib">Ваш заказ: </p><p id="orderID">{{orderID}}</p>
+    <p id="attrib">К вам едет: </p>
+    <p id="carType">{{driverDetail.results.assignee.firstName }} {{driverDetail.results.assignee.lastName}}</p>
+    <div class="te">
+      <p id="carNumber">{{driverDetail.results.assignee.phone}}</p>
+    </div>
+    <p id="attribP">Сделайте фото</p>
+  </div>
+  <div class="propose">
+    <p>Заказывайте такси через приложение</p>
+  </div>
+  <div class="qrCode">
+    <img src="../../assets/qr.png">
+  </div>
+  <div class="finish">
+    <button class="finishButton" routerLink="/" routerLinkActive="active" (click)="resetOrder()">Готово</button>
+  </div>
+</div>

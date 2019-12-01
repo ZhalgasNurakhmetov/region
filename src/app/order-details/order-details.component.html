@@ -1,0 +1,47 @@
+<div class="orderContent">
+  <div class="destinations">
+    <input #destination id="destinationT" on-focus="onInputFocus()" [(ngModel)]="dest" placeholder="Куда поедете?" required>
+  </div>
+  <div class="test">
+    <div class="orderTime">
+      <img src="../../assets/now.png">
+    </div>
+    <div class="orderCash">
+      <img src="../../assets/cash.png">
+    </div>
+    <div class="orderDocs">
+      <img src="../../assets/docs.png">
+    </div>
+  </div>
+  <div class="simple-keyboard" id="alpha"></div>
+  <div class="economy">
+    <label class="radioBut">
+      <input class="op" type="radio" name="radio">
+      <img src="../../assets/economy.png">
+    </label>
+  </div>
+  <div class="comfort">
+    <label>
+      <input class="op" type="radio" name="radio">
+      <img src="../../assets/comfort.png">
+    </label>
+  </div>
+  <div class="business">
+    <label>
+      <input class="op" type="radio" name="radio">
+      <img src="../../assets/business.png">
+    </label>
+  </div>
+  <div class="minivan">
+    <label>
+      <input class="op" type="radio" name="radio">
+      <img src="../../assets/minivan.png">
+    </label>
+  </div>
+  <div class="create">
+    <button class="makeOrder" routerLink="/response" routerLinkActive="active" [disabled]="dest === ''" (click)="create()">Заказать</button>
+  </div>
+  <div class="returnBack">
+    <button class="back" routerLink="/" routerLinkActive="active" (click)="onReturn()">Вернуться</button>
+  </div>
+</div>
