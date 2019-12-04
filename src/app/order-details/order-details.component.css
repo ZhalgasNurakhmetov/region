@@ -97,6 +97,9 @@
   padding: 20px;
   /* box-shadow: 5px 10px 10px 5px #FFAAB1; */
 }
+.makeOrder:disabled{
+  background-color: gray;
+}
 .back{
   background-color: #E9E5EA;
   border: none;
@@ -118,4 +121,8 @@
 }
 .op:checked + img {
   outline: 5px solid #f00;
+}
+.alertAddress {
+  color: red;
+  font-size: 36px;
 }

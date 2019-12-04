@@ -1,6 +1,6 @@
-import { HttpModService } from './../http-mod.service';
+import { HttpModService } from '../services/http-mod.service';
 import { Component, OnInit } from '@angular/core';
-import { CreateOrderService } from '../create-order.service';
+import { CreateOrderService } from '../services/create-order.service';
 
 @Component({
   selector: 'app-order',

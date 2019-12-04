@@ -1,7 +1,8 @@
-import { HttpModService } from './../http-mod.service';
-import { CreateOrderService } from './../create-order.service';
+import { HttpModService } from '../services/http-mod.service';
+import { CreateOrderService } from '../services/create-order.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import Keyboard from 'simple-keyboard';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-details',
@@ -15,7 +16,7 @@ export class OrderDetailsComponent {
   dest = '';
   driver;
 
-  constructor(private createOrder: CreateOrderService, private toApi: HttpModService) { }
+  constructor(private createOrder: CreateOrderService, private toApi: HttpModService, private router: Router) { }
 
   onInputFocus() {
     this.keyboard = new Keyboard({
@@ -41,7 +42,12 @@ export class OrderDetailsComponent {
 
   create(): void {
     this.createOrder.setAddress(this.dest);
-    this.toApi.createOrder(this.createOrder.order).subscribe(response => this.driver = response);
+    this.createOrder.order.params.time = new Date().toISOString();
+    this.toApi.createOrder(this.createOrder.order).subscribe(response => this.onSuccess(response));
+  }
+  onSuccess(result): void {
+    this.driver = result;
+    this.router.navigate(['/response']);
   }
 
 }

@@ -1,4 +1,4 @@
-import { LoadingServiceService } from './../loading-service.service';
+import { LoadingServiceService } from '../services/loading-service.service';
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { debounceTime } from 'rxjs/operators';
 })
 export class LoadingComponent implements AfterViewInit, OnDestroy {
 
-  debounceTime = 200;
+  debounceTime = 300;
   loading = false;
   loadingSubscription: Subscription;
 

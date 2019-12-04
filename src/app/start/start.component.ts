@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import Keyboard from 'simple-keyboard';
-import { CreateOrderService } from './../create-order.service';
+import { CreateOrderService } from '../services/create-order.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import numeric from '../numeric';
 
@@ -12,9 +13,9 @@ import numeric from '../numeric';
 export class StartComponent {
 
   keyboard: Keyboard;
-  phone = '';
+  phone = '+7';
 
-  constructor(private createOrder: CreateOrderService) { }
+  constructor(private createOrder: CreateOrderService, private router: Router) { }
 
   onInputFocus() {
     this.keyboard = new Keyboard({
@@ -37,6 +38,7 @@ export class StartComponent {
 
   phoneNumber(): void {
     this.createOrder.setPhone(this.phone);
+    this.router.navigate(['/order'])
   }
 
 }

@@ -1,4 +1,4 @@
-import { LoadingServiceService } from './loading-service.service';
+import { LoadingServiceService } from './services/loading-service.service';
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -9,12 +9,9 @@ export class LoadingScreenInterceptor implements HttpInterceptor {
 
   activeRequests = 0;
 
-  /**
-   * URLs for which the loading screen should not be enabled
-   */
   skippUrls = [
     '',
-    '/response'
+    '/order'
   ];
 
   constructor(private loadingScreenService: LoadingServiceService) {

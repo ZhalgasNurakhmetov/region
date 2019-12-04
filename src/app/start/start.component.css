@@ -43,6 +43,9 @@
   /* box-shadow: 5px 10px 10px 5px #FFAAB1; */
 
 }
+.createButton:disabled {
+  background-color: gray;
+}
 .official {
   grid-column: 1 / span 4;
   grid-row: 2;
@@ -65,3 +68,8 @@
   grid-column: 1 / 3;
   text-align: center;
 }
+.alertMessage {
+  color: red;
+  font-size: 36px;
+}
+

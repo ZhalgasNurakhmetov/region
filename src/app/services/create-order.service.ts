@@ -1,4 +1,5 @@
-import { Order, Params } from './entities/createOrder/createOrder';
+import { Address, ClientAddress } from './../entities/getAddress/address';
+import { Order, Params } from '../entities/createOrder/createOrder';
 import { Injectable } from '@angular/core';
 
 
@@ -12,7 +13,9 @@ export class CreateOrderService {
   constructor() { }
 
   setAddress(addressValue: string) {
-    return this.order.params.route.address.name = addressValue;
+    let address = new ClientAddress();
+    address.address.name = addressValue;
+    return this.order.params.route.push(address);
   }
 
   setPhone(phone: string) {
@@ -24,7 +27,7 @@ export class CreateOrderService {
   }
 
   resetAddress() {
-    return this.order.params.route.address.name = '';
+    return this.order.params.route[0].address.name = '';
   }
 
 }

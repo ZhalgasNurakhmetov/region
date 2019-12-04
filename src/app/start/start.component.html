@@ -8,10 +8,18 @@
     <p>ОФИЦИАЛЬНОЕ ТАКСИ</p>
   </div>
   <div class="phoneInput">
-    <input #number id="numberP" on-focus="onInputFocus()" [(ngModel)]="phone" class="input" placeholder="Введите номер телефона" required>
+    <input id="numberP" name="numberP" on-focus="onInputFocus()" class="form-control" placeholder="Введите номер телефона" required minlength="12" [(ngModel)]="phone" #number="ngModel">
+    <div *ngIf="number.invalid && (number.dirty || number.touched)" class="alert alert-danger">
+      <div *ngIf="number.errors.required" class="alertMessage">
+        Необходимо ввести номер телефона
+      </div>
+      <div *ngIf="number.errors.minlength" class="alertMessage">
+        Введите номер телефона
+      </div>
+    </div>
   </div>
   <div class="simple-keyboard" id="numeric"></div>
   <div class="createOrder">
-    <button class="createButton" routerLink="/order" routerLinkActive="active" [disabled]="phone.length < 11" (click)="phoneNumber()">Оформить заказ</button>
+    <button class="createButton" [disabled]="number.invalid" (click)="phoneNumber()">Оформить заказ</button>
   </div>
 </div>

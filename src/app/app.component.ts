@@ -1,6 +1,6 @@
 import { Order } from './entities/createOrder/createOrder';
 import { Address } from './entities/getAddress/address';
-import { HttpModService } from './http-mod.service';
+import { HttpModService } from './services/http-mod.service';
 import { Component, OnInit } from '@angular/core';
 
 

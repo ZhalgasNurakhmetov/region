@@ -1,6 +1,11 @@
 <div class="orderContent">
   <div class="destinations">
-    <input #destination id="destinationT" on-focus="onInputFocus()" [(ngModel)]="dest" placeholder="Куда поедете?" required>
+    <input id="destinationT" name="destinationT" on-focus="onInputFocus()" placeholder="Куда поедете?" required [(ngModel)]="dest" #destination="ngModel">
+    <div *ngIf="destination.invalid && (destination.dirty || destination.touched)" class="alert alert-danger">
+      <div *ngIf="destination.errors.required" class="alertAddress">
+        Необходимо ввести адрес назначения
+      </div>
+    </div>
   </div>
   <div class="test">
     <div class="orderTime">
@@ -39,7 +44,7 @@
     </label>
   </div>
   <div class="create">
-    <button class="makeOrder" routerLink="/response" routerLinkActive="active" [disabled]="dest === ''" (click)="create()">Заказать</button>
+    <button class="makeOrder" [disabled]="destination.invalid" (click)="create()">Заказать</button>
   </div>
   <div class="returnBack">
     <button class="back" routerLink="/" routerLinkActive="active" (click)="onReturn()">Вернуться</button>

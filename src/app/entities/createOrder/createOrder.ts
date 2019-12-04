@@ -9,6 +9,10 @@ export class Order {
 export class Params {
   fareId = 74000207357925;
   phone: string;
-  route: ClientAddress = new ClientAddress();
-  time = Date.now();
+  route: Array<ClientAddress>;
+  time: string;
+
+  constructor() {
+    this.route = new Array<ClientAddress>();
+  }
 }
