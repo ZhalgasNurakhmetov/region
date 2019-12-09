@@ -8,49 +8,45 @@
   height: 100vh;
   background: #F5F5FB;
 }
-.carDetails{
 
+.carDetails{
   grid-column: 2;
   grid-row: 2 ;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: repeat(auto, 4);
-  /* justify-items: center; */
   align-items: center;
   border: 3px solid black;
   width: 50%;
   border-radius: 30px;
   background: white;
-  /* width: 100vw;
-  height: 100vh; */
 }
 
 .carMark{
-
   grid-row: 2;
-
 }
+
 .idCar{
-
   grid-row: 3;
-
 }
+
 .photo{
-
   grid-row: 4;
-
 }
+
 .qrCode {
   grid-row: 2;
   grid-column: 3;
   text-align: center;
 }
+
 .finish{
   grid-column: 3;
   grid-row: 3;
   text-align: center;
   width: 50%;
 }
+
 .finishButton {
   background-color: #EB5757;
   border: none;
@@ -61,6 +57,7 @@
   border-radius: 30px;
   padding: 20px;
 }
+
 .propose p{
   font-weight: 800;
   font-size: 36px;
@@ -78,21 +75,24 @@
   font-size: 42px;
   text-align: left;
 }
+
 #orderID {
  grid-column: 2;
  grid-row: 1;
 }
+
 #orderID, #carType, #carNumber, #carSer, #attribP {
   color: black;
   font-size: 36px;
 }
+
 #attribP{
   grid-row: 4;
   grid-column: 1 / span 2;
   text-align: center;
-
 }
-.te{
+
+.nCar{
   grid-row: 3;
   grid-column: 1;
   text-align: center;

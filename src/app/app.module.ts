@@ -1,9 +1,9 @@
+import { LoadingServiceService } from './services/loading-service.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-
 import { OrderComponent } from './order/order.component';
 import { FormsModule } from '@angular/forms';
 import { from } from 'rxjs';
@@ -27,6 +27,7 @@ import { LoadingScreenInterceptor } from './loading.interceptor';
     FormsModule,
   ],
   providers: [
+    LoadingServiceService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingScreenInterceptor,

@@ -9,5 +9,5 @@ export class ParamsDriver {
 }
 
 export class ResponseOfOrder {
-  result: number; //result id
+  result: number;
 }

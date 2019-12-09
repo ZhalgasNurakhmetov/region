@@ -1,5 +1,5 @@
-import { Address, ClientAddress } from './../entities/getAddress/address';
-import { Order, Params } from '../entities/createOrder/createOrder';
+import { ClientAddress } from './../entities/getAddress/address';
+import { Order } from '../entities/createOrder/createOrder';
 import { Injectable } from '@angular/core';
 
 
@@ -13,7 +13,7 @@ export class CreateOrderService {
   constructor() { }
 
   setAddress(addressValue: string) {
-    let address = new ClientAddress();
+    const address = new ClientAddress();
     address.address.name = addressValue;
     return this.order.params.route.push(address);
   }

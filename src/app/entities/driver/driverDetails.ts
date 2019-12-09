@@ -1,5 +1,5 @@
 export class Driver {
-  results: AssignedDriver = new AssignedDriver();
+  result: AssignedDriver = new AssignedDriver();
 }
 
 export class AssignedDriver {

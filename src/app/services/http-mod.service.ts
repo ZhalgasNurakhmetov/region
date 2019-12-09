@@ -1,10 +1,13 @@
+import { DriverDetails } from './../entities/driver/driverDetails';
 import { Driver } from '../entities/driver/driverDetails';
-import { GetDriverDetails, ParamsDriver, ResponseOfOrder } from '../entities/driver/getDriver';
+import { GetDriverDetails, ResponseOfOrder } from '../entities/driver/getDriver';
 import { Order } from '../entities/createOrder/createOrder';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap, flatMap } from 'rxjs/operators';
+import { Observable, of , throwError} from 'rxjs';
+import { catchError, repeat, retryWhen, map, retry } from 'rxjs/operators';
+import { GetOrderStatus, CurrentOrderStatus } from '../entities/orderStatus/getOrderStatus';
+import { delay } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -13,42 +16,33 @@ export class HttpModService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      Authorization: '5c8c529e-9902-4b72-a886-c1208dcaf0f2',
-      // 'Content-Type': 'application/json'
+      Authorization: '5c8c529e-9902-4b72-a886-c1208dcaf0f2'
     })
   };
 
   driver = new GetDriverDetails();
-  driverInfo = new Driver();
+  driverInfo = new DriverDetails();
+  order = new GetOrderStatus();
 
   private createOrderUrl = 'https://econom-astana.hivelogin.ru/api/integration/rpc';
 
   constructor(private http: HttpClient) { }
 
-  createOrder(order: Order): Observable<ResponseOfOrder> {
-    console.log(JSON.stringify(order));
-    return this.http.post<ResponseOfOrder>(this.createOrderUrl, order, this.httpOptions).pipe(
-      map((result) => {
-        console.log(result);
-        this.driver.params.orderId = result.result;
-        return result;
-        // return this.http.post<Driver>(this.createOrderUrl, this.driver, this.httpOptions).pipe(
-        //   map((res) => {
-        //     this.driverInfo.results.assignee.firstName = res.results.assignee.firstName;
-        //     this.driverInfo.results.assignee.lastName = res.results.assignee.lastName;
-        //     this.driverInfo.results.assignee.middleName = res.results.assignee.middleName;
-        //     this.driverInfo.results.assignee.callSign = res.results.assignee.callSign;
-        //     this.driverInfo.results.assignee.phone = res.results.assignee.phone;
-        //     return res;
-        //   })
-        // );
-    }));
+  createOrder(order: Order) {
+    return this.http.post<ResponseOfOrder>(this.createOrderUrl, order, this.httpOptions);
   }
 
-  private handleErrorObservable(error: Response | any) {
+  getDriver(driver: GetDriverDetails) {
+    return this.http.post<Driver>(this.createOrderUrl, driver, this.httpOptions);
+  }
+
+  getOrderStatus(status: GetOrderStatus) {
+    return this.http.post<CurrentOrderStatus>(this.createOrderUrl, status, this.httpOptions);
+  }
+
+  handleErrorObservable(error: Response | any) {
     console.error(error.message || error);
-    // tslint:disable-next-line: deprecation
-    return Observable.throw(error.message || error);
+    return throwError(error.message || error);
   }
 
 }

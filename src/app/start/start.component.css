@@ -7,6 +7,7 @@
   box-sizing: border-box;
   border-radius: 30px;
 }
+
 .startContent {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
@@ -17,6 +18,7 @@
   align-items: center;
   background: #F5F5FB;
 }
+
 .phoneInput {
   grid-column: 1 / span 4;
   grid-row: 3;
@@ -30,8 +32,8 @@
   text-align: center;
   width: 50%
 }
-.createButton {
 
+.createButton {
   background-color: #EB5757;
   border: none;
   color: white;
@@ -40,34 +42,38 @@
   width: 100%;
   border-radius: 30px;
   padding: 20px;
-  /* box-shadow: 5px 10px 10px 5px #FFAAB1; */
-
 }
+
 .createButton:disabled {
   background-color: gray;
 }
+
 .official {
   grid-column: 1 / span 4;
   grid-row: 2;
   text-align: center;
   width: 100%;
 }
+
 .official p {
   font-size: 72px;
   font-weight: 700;
   text-align: center;
 }
+
 #numeric {
   grid-column: 2 / 4;
   grid-row: 4;
   text-align: center;
   width: 30%;
 }
+
 .taxiService {
   grid-row: 1;
   grid-column: 1 / 3;
   text-align: center;
 }
+
 .alertMessage {
   color: red;
   font-size: 36px;
