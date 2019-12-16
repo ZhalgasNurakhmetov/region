@@ -7,9 +7,9 @@ export class ClientAddress {
 
 export class Address {
   name: string;
-  components: AddressComponent[] = [];
+  components: AddressComponent;
   types: AddressTypes;
-  position: GpsPosition;
+  position: GpsPosition = new GpsPosition();
 }
 
 export class AddressComponent {

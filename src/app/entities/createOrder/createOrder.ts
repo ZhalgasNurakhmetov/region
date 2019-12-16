@@ -7,7 +7,7 @@ export class Order {
 }
 
 export class Params {
-  fareId = 74000207357925;
+  fareId: number; // = 74000207357925;
   phone: string;
   route: Array<ClientAddress>;
   time: string;

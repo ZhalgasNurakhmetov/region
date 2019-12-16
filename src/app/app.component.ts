@@ -1,6 +1,3 @@
-import { Order } from './entities/createOrder/createOrder';
-import { Address } from './entities/getAddress/address';
-import { HttpModService } from './services/http-mod.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -12,14 +9,4 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent {
   title = 'kiosk';
 
-  // getAd(): void {
-  //   this.adSer.getAddress()
-  //   .subscribe(data => this.data = data);
-  // }
-  // add(data: Order): void {
-  //   this.adSer.createOrder(data as Order)
-  //   .subscribe(d => {
-  //     this.results.push(d);
-  //   });
-  // }
 }

@@ -1,4 +1,4 @@
-import { LoadingComponent } from './loading/loading.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { StartComponent } from './start/start.component';
 import { OrderComponent } from './order/order.component';
@@ -7,10 +7,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: '', component: StartComponent},
+  {path: '', component: ConfigurationComponent},
+  {path: 'welcome', component: StartComponent},
   {path: 'response', component: OrderComponent},
-  {path: 'order', component: OrderDetailsComponent},
-  {path: 'load', component: LoadingComponent}
+  {path: 'order', component: OrderDetailsComponent}
 ];
 
 @NgModule({

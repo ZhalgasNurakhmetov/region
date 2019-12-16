@@ -1,16 +1,15 @@
-import { LoadingServiceService } from './services/loading-service.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { OrderComponent } from './order/order.component';
 import { FormsModule } from '@angular/forms';
-import { from } from 'rxjs';
 import { StartComponent } from './start/start.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
-import { LoadingComponent } from './loading/loading.component';
-import { LoadingScreenInterceptor } from './loading.interceptor';
+import { ConfigurationComponent } from './configuration/configuration.component';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { LoadingScreenInterceptor } from './loading.interceptor';
     OrderComponent,
     StartComponent,
     OrderDetailsComponent,
-    LoadingComponent
+    ConfigurationComponent
   ],
   imports: [
     AppRoutingModule,
@@ -26,14 +25,7 @@ import { LoadingScreenInterceptor } from './loading.interceptor';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [
-    LoadingServiceService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoadingScreenInterceptor,
-      multi: true
-    }
-  ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

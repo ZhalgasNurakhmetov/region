@@ -1,7 +1,8 @@
+import { HttpModService } from './../services/http-mod.service';
 import { Router } from '@angular/router';
 import Keyboard from 'simple-keyboard';
 import { CreateOrderService } from '../services/create-order.service';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation} from '@angular/core';
 import numeric from '../numeric';
 
 @Component({
@@ -13,7 +14,7 @@ import numeric from '../numeric';
 export class StartComponent {
 
   keyboard: Keyboard;
-  phone = '+7';
+  phone = '';
 
   constructor(private createOrder: CreateOrderService, private router: Router) { }
 
@@ -40,5 +41,4 @@ export class StartComponent {
     this.createOrder.setPhone(this.phone);
     this.router.navigate(['/order']);
   }
-
 }

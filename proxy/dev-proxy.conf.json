@@ -1,0 +1,9 @@
+{
+  "/api": {
+    "target": "https://econom-astana.hivelogin.ru/api/integration/rpc",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

@@ -2,6 +2,7 @@
   "name": "kiosk",
   "version": "0.0.0",
   "scripts": {
+    "start:dev": "ng serve -c=dev --port=4201 --proxy-config=proxy/dev-proxy.conf.json",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

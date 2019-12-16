@@ -9,14 +9,25 @@ import { Injectable } from '@angular/core';
 export class CreateOrderService {
 
   order =  new Order();
+  startingPoint = '';
 
   constructor() { }
 
-  setAddress(addressValue: string) {
+  setAddressA(addressValue: string, lat = '', lon = '') {
     const address = new ClientAddress();
     address.address.name = addressValue;
+    address.address.position.lat = parseFloat(lat);
+    address.address.position.lon = parseFloat(lon);
     return this.order.params.route.push(address);
   }
+
+  setAddressB(addressValue: string) {
+    const address = new ClientAddress();
+    address.address.name = addressValue;
+
+    return this.order.params.route.push(address);
+  }
+
 
   setPhone(phone: string) {
     return this.order.params.phone = phone;
@@ -27,7 +38,7 @@ export class CreateOrderService {
   }
 
   resetAddress() {
-    return this.order.params.route[0].address.name = '';
+    return this.order.params.route[1].address.name = '';
   }
 
 }

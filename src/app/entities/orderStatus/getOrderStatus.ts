@@ -1,11 +1,9 @@
+import { Params } from './../createOrder/createOrder';
+
 export class GetOrderStatus {
   method = 'Orders.getStatus';
   version = '1.0';
-  params: OrderStatus = new OrderStatus();
-}
-
-export class OrderStatus {
-  orderId: number;
+  params: Params = new Params();
 }
 
 export class CurrentOrderStatus {

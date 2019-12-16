@@ -1,0 +1,167 @@
+.configurationContent{
+  display: grid;
+  grid-template-columns: 10% 60% 30%;
+  grid-template-rows: 20% 20% 20% auto 20%;
+  justify-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #F5F5FB;
+}
+.confValues{
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(auto, 5);
+  grid-template-columns: 50% 50%;
+  align-items: center;
+}
+.api{
+  grid-row: 1;
+  grid-column: 1 / span 2;
+}
+.point{
+  grid-row: 2;
+  grid-column: 1 / span 2;
+}
+.fareId{
+  grid-row: 4;
+  grid-column: 1 / span 2;
+}
+.api label, .point label, .fareId label {
+  font-size: 3vh;
+  padding-right: 5%;
+}
+.api input, .point input, .fareId input{
+  width: 71%;
+  font-size: 3vh;
+}
+.position{
+  grid-row: 3;
+  grid-column: 1 / span 2;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+}
+.lat label, .lon label{
+  font-size: 3vh;
+  padding-right: 2%;
+}
+.lat input, .lon input{
+  font-size: 3vh;
+  width: 50%;
+}
+.lat{
+  grid-row: 1;
+  grid-column: 1;
+  width: 100%;
+  text-align: right;
+}
+.lon{
+  grid-row: 1;
+  grid-column: 2;
+  width: 100%;
+  text-align: left;
+}
+label {
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}
+#alphaNumeric{
+  grid-row: 3 / span 2;
+  grid-column: 2;
+  width: 80%;
+}
+.start {
+  grid-row: 5;
+  grid-column: 2;
+  background-color: #FF3C46;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 5vh;
+  width: 50%;
+  border-radius: 50px;
+  padding: 20px;
+  box-shadow: 3px 3px 30px 5px #FF3C46;
+  font-family: Helvetica;
+  font-weight: 800;
+  height: 60%;
+}
+.scale{
+  grid-row: 5;
+  grid-column: 1 / span 2;
+  text-align: center;
+}
+.container {
+  display: inline;
+  position: relative;
+  padding-left: 35px;
+  /* margin-bottom: 12px; */
+  cursor: pointer;
+  font-size: 36px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #FF3C46;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  text-align: center;
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+#alpha {
+  grid-column: 3;
+  grid-row: 2;
+  text-align: center;
+  width: 60%;
+}

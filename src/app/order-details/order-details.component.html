@@ -1,11 +1,20 @@
 <div class="orderContent">
   <div class="destinations">
-    <input id="destinationT" name="destinationT" on-focus="onInputFocus()" placeholder="Куда поедете?" required [(ngModel)]="dest" #destination="ngModel">
-    <div *ngIf="destination.invalid && (destination.dirty || destination.touched)" class="alert alert-danger">
+
+    <img class="from" src="../../assets/from.png">
+    <p id="fromPlace">{{startPoint}}</p>
+    <img class="destinationArrow" src="../../assets/destinationArrow.png">
+    <img class="to" src="../../assets/to.png">
+    <div class="inputArea">
+      <input id="destinationT" name="destinationT" on-focus="onInputFocus()" placeholder="Куда поедете?" required [(ngModel)]="dest" #destination="ngModel">
+    </div>
+
+    <img class="plus" src="../../assets/plus.png">
+    <!-- <div *ngIf="destination.invalid && (destination.dirty || destination.touched)" class="alert alert-danger">
       <div *ngIf="destination.errors.required" class="alertAddress">
         Необходимо ввести адрес назначения
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="timeOfOrder">
     <div class="orderTime">
@@ -18,36 +27,36 @@
       <img src="../../assets/docs.png">
     </div>
   </div>
+  <hr id="separator">
   <div class="simple-keyboard" id="alpha"></div>
   <div class="economy">
     <label class="radioBut">
-      <input class="carClass" type="radio" name="radio">
+      <input class="carClass" type="radio" name="tarif" (click)="setTarif(1)" required #econom>
       <img src="../../assets/economy.png">
     </label>
   </div>
   <div class="comfort">
     <label>
-      <input class="carClass" type="radio" name="radio">
+      <input class="carClass" type="radio" name="tarif" (click)="setTarif(2)">
       <img src="../../assets/comfort.png">
     </label>
   </div>
   <div class="business">
     <label>
-      <input class="carClass" type="radio" name="radio">
+      <input class="carClass" type="radio" name="tarif" (click)="setTarif(3)">
       <img src="../../assets/business.png">
     </label>
   </div>
   <div class="minivan">
     <label>
-      <input class="carClass" type="radio" name="radio">
+      <input class="carClass" type="radio" name="tarif" (click)="setTarif(4)">
       <img src="../../assets/minivan.png">
     </label>
   </div>
   <div class="create">
-    <button class="makeOrder" [disabled]="destination.invalid" (click)="create()">Заказать</button>
-    <!-- <button class="makeOrder" routerLink="/load" routerLinkActive="active">Заказать</button> -->
+    <button class="createButton" [disabled]="destination.invalid" (click)="create()">Заказать</button>
   </div>
   <div class="returnBack">
-    <button class="back" routerLink="/" routerLinkActive="active" (click)="onReturn()">Вернуться</button>
+    <button class="back" routerLink="/welcome" routerLinkActive="active" (click)="onReturn()"><img src="../../assets/arrow.png"></button>
   </div>
 </div>

@@ -11,13 +11,14 @@
 
 .carDetails{
   grid-column: 2;
-  grid-row: 2 ;
+  grid-row: 1 / span 3;
   display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: repeat(auto, 4);
+  grid-template-columns: 10% 30% 45% 15%;
+  grid-template-rows: 25% 25% 25% 2% 23%;
   align-items: center;
-  border: 3px solid black;
-  width: 50%;
+  /* justify-items: center; */
+  width: 90%;
+  height: 80%;
   border-radius: 30px;
   background: white;
 }
@@ -38,63 +39,164 @@
   grid-row: 2;
   grid-column: 3;
   text-align: center;
+  width: 50%;
+}
+.qrCode img {
+  width: 70%;
 }
 
 .finish{
   grid-column: 3;
   grid-row: 3;
   text-align: center;
-  width: 50%;
+  width: 70%;
 }
 
-.finishButton {
-  background-color: #EB5757;
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 50px;
-  width: 100%;
-  border-radius: 30px;
-  padding: 20px;
-}
 
 .propose p{
   font-weight: 800;
-  font-size: 36px;
+  font-size: 3vh;
+  transform: scale(1.5, 1.5);
 }
-
+.finishButton{
+  width: 90%;
+  padding: 30px;
+}
 .propose{
   grid-row: 1;
   grid-column: 3;
   text-align: center;
 }
-
-#attrib{
-  grid-column: 1;
+#recepientOrder{
+  grid-row: 1;
+  grid-column: 2;
   color: #696969;
-  font-size: 42px;
+  font-size: 4vh;
+  text-align: left;
+}
+#orderDriver{
+  grid-row: 2;
+  grid-column: 2 / span 2;
+  color: #696969;
+  font-size: 4vh;
   text-align: left;
 }
 
-#orderID {
- grid-column: 2;
+#recepientID {
+ grid-column: 3 / span 2;
  grid-row: 1;
+ text-align: left;
+ width: 100%;
+ font-size: 5vh;
 }
 
-#orderID, #carType, #carNumber, #carSer, #attribP {
+#orderID, #carType, #carSer, #attribP {
   color: black;
-  font-size: 36px;
+  font-size: 52px;
+  margin: 0;
+  padding: 5px;
+  letter-spacing: 2px;
+  /* text-align: center; */
 }
+.serialNumber{
 
-#attribP{
-  grid-row: 4;
-  grid-column: 1 / span 2;
+  /* padding: 5px; */
+  /* letter-spacing: 2px; */
+  grid-row: 1;
+  grid-column: 2;
+  width: 100%;
+  /* height: 100%; */
+}
+.nCar img{
+  grid-row: 1;
+  grid-column: 1;
+  width: 60%;
+}
+.serialNumber p{
+  color: black;
+  font-size: 5vh;
+  margin: 0;
   text-align: center;
+}
+#takePhoto{
+  grid-row: 5;
+  grid-column: 2 / span 3;
+  text-align: center;
+  font-size: 4vh;
+  font-weight: 900;
+}
+.takePhoto{
+  grid-row: 5;
+  grid-column: 2;
+  text-align: left;
+  width: 50%;
 }
 
 .nCar{
   grid-row: 3;
-  grid-column: 1;
-  text-align: center;
-  border: 2px solid black;
+  grid-column: 2 / span 2;
+  border: 2px solid grey;
+  width: 70%;
+  height: 35%;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 20% 80%;
+  align-items: center;
+  justify-items: center;
 }
+.separate{
+  grid-row: 4;
+  grid-column: 1 / span 4;
+  width: 100%;
+  border: 2px solid #EAEBF0;
+}
+
+.loaderContent{
+  display: grid;
+  grid-template-rows: 30% 40% 30%;
+  grid-template-columns: 30% 40% 30%;
+  background: #F5F5FB;
+  height: 100vh;
+  width: 100vw;
+  justify-items: center;
+  align-items: center;
+}
+
+
+@keyframes load {
+  0%{
+      opacity: 0.08;
+/*         font-size: 10px; */
+/* 				font-weight: 400; */
+      filter: blur(5px);
+      letter-spacing: 3px;
+      }
+  100%{
+/*         opacity: 1; */
+/*         font-size: 12px; */
+/* 				font-weight:600; */
+/* 				filter: blur(0); */
+      }
+}
+
+.animate {
+  grid-row: 2;
+  grid-column: 1 / span 3;
+display:flex;
+justify-content: center;
+align-items: center;
+height:100%;
+width: 100%;
+margin: 0;
+/* margin: auto; */
+/* 	width: 350px; */
+/* 	font-size:26px; */
+font-family: Helvetica, sans-serif, Arial;
+animation: load 1.2s infinite 0s ease-in-out;
+animation-direction: alternate;
+text-shadow: 0 0 1px white;
+font-size: 4vh;
+}
+
+
+

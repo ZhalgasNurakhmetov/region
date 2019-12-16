@@ -1,20 +1,29 @@
-<div class="responseContent">
+<div class="loaderContent" *ngIf="!driver">
+  <h2 class="animate">Назначаем ближайший автомобиль...</h2>
+</div>
+
+
+<div class="responseContent" *ngIf="driver">
   <div class="carDetails">
-    <p id="attrib">Ваш заказ: </p><p id="orderID">{{orderID}}</p>
-    <p id="attrib">К вам едет: </p>
-    <p id="carType">{{driverDetail.firstName }} {{driverDetail.lastName}}</p>
+    <p id="recepientOrder">Ваш заказ: </p><p id="recepientID">7897897897989</p>
+    <p id="orderDriver">К вам едет: <br><span style="font-size: 5vh; color: black;">Zhalgas Nurakhmetov</span> </p>
     <div class="nCar">
-      <p id="carNumber">{{driverDetail.phone}}</p>
+      <img src="../../assets/kz.png">
+      <div class="serialNumber">
+        <p id="carNumber">555 ABS 01</p>
+      </div>
     </div>
-    <p id="attribP">Сделайте фото</p>
+    <hr class="separate">
+    <img class="takePhoto" src="../../assets/takePhoto.png">
+    <p id="takePhoto">Сделайте фото</p>
   </div>
   <div class="propose">
-    <p>Заказывайте такси через приложение</p>
+    <p>Заказывайте такси<br>Через приложение</p>
   </div>
   <div class="qrCode">
     <img src="../../assets/qr.png">
   </div>
   <div class="finish">
-    <button class="finishButton" routerLink="/" routerLinkActive="active" (click)="resetOrder()">Готово</button>
+    <button class="finishButton" (click)="resetOrder()">Готово</button>
   </div>
 </div>
