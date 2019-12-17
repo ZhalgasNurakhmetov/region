@@ -1,4 +1,4 @@
-export class GetDriverDetails {
+export class OrderDriverDetails {
   method = 'Orders.getAssignee';
   version = '1.0';
   params: Params = new Params();

@@ -1,17 +1,15 @@
-import { environment } from './../../environments/environment.dev';
-import { DriverDetails } from './../entities/driver/driverDetails';
+import { DriverDetails } from '../entities/driver/driverDetails';
 import { Driver } from '../entities/driver/driverDetails';
-import { GetDriverDetails, ResponseOfOrder } from '../entities/driver/getDriver';
+import { OrderDriverDetails, ResponseOfOrder } from '../entities/driver/getDriver';
 import { Order } from '../entities/createOrder/createOrder';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { throwError} from 'rxjs';
-import { GetOrderStatus, CurrentOrderStatus } from '../entities/orderStatus/getOrderStatus';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttpModService {
+export class ApiCallService {
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,9 +17,8 @@ export class HttpModService {
     })
   };
 
-  driver = new GetDriverDetails();
+  driver = new OrderDriverDetails();
   driverInfo = new DriverDetails();
-  order = new GetOrderStatus();
 
   private createOrderUrl: string;
 
@@ -39,11 +36,7 @@ export class HttpModService {
     return this.http.post<Driver>(this.createOrderUrl, this.driver, this.httpOptions);
   }
 
-  getOrderStatus(status: GetOrderStatus) {
-    return this.http.post<CurrentOrderStatus>(this.createOrderUrl, status, this.httpOptions);
-  }
-
-  handleErrorObservable(error: Response | any) {
+  handleError(error: Response | any) {
     console.error(error.message || error);
     return throwError(error.message || error);
   }

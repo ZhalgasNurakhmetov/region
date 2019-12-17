@@ -54,9 +54,9 @@
     </label>
   </div>
   <div class="create">
-    <button class="createButton" [disabled]="destination.invalid" (click)="create()">Заказать</button>
+    <button class="createButton" [disabled]="destination.invalid" (click)="setAddress()">Заказать</button>
   </div>
   <div class="returnBack">
-    <button class="back" routerLink="/welcome" routerLinkActive="active" (click)="onReturn()"><img src="../../assets/arrow.png"></button>
+    <button class="back" (click)="onReturn()"><img src="../../assets/arrow.png"></button>
   </div>
 </div>

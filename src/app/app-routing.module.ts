@@ -8,9 +8,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: '', component: ConfigurationComponent},
-  {path: 'welcome', component: StartComponent},
-  {path: 'response', component: OrderComponent},
-  {path: 'order', component: OrderDetailsComponent}
+  {path: 'phone', component: StartComponent},
+  {path: 'order', component: OrderComponent},
+  {path: 'address', component: OrderDetailsComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { DriverDetails } from './../entities/driver/driverDetails';
-import { HttpModService } from '../services/http-mod.service';
+import { ApiCallService } from '../services/api-call.service';
 import { Component, OnInit } from '@angular/core';
 import { CreateOrderService } from '../services/create-order.service';
 
@@ -11,7 +11,7 @@ import { CreateOrderService } from '../services/create-order.service';
 })
 export class OrderComponent implements OnInit {
 
-  constructor(private order: CreateOrderService, private toApi: HttpModService, private router: Router) { }
+  constructor(private order: CreateOrderService, private toApi: ApiCallService, private router: Router) { }
 
   driver: DriverDetails;
   orderID = this.toApi.driver.params.orderId;
@@ -30,14 +30,14 @@ export class OrderComponent implements OnInit {
         }, 2000);
       }
     }, error => {
-      this.toApi.handleErrorObservable(error);
+      this.toApi.handleError(error);
     });
   }
 
   resetOrder() {
     this.order.resetAddress();
     this.order.resetPhone();
-    this.router.navigate(['/welcome']);
+    this.router.navigate(['/phone']);
   }
 
   ngOnInit(): void {

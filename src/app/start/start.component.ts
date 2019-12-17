@@ -1,4 +1,3 @@
-import { HttpModService } from './../services/http-mod.service';
 import { Router } from '@angular/router';
 import Keyboard from 'simple-keyboard';
 import { CreateOrderService } from '../services/create-order.service';
@@ -37,8 +36,8 @@ export class StartComponent {
     this.keyboard.setInput(event.target.phone);
   }
 
-  phoneNumber(): void {
+  setPhoneNumber(): void {
     this.createOrder.setPhone(this.phone);
-    this.router.navigate(['/order']);
+    this.router.navigate(['/address']);
   }
 }

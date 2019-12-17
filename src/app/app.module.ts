@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { StartComponent } from './start/start.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -24,6 +25,11 @@ import { ConfigurationComponent } from './configuration/configuration.component'
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      // please get your own API key here:
+      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+      apiKey: 'AIzaSyBMqkcDsOHdSHcCvxtFXCPnd2ITgdNANmw'
+    })
   ],
   providers: [ ],
   bootstrap: [AppComponent]

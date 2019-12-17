@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpModService } from './http-mod.service';
+import { GpsPositionService } from './gps-position.service';
 
-describe('HttpModService', () => {
+describe('GpsPositionService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: HttpModService = TestBed.get(HttpModService);
+    const service: GpsPositionService = TestBed.get(GpsPositionService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,9 +1,12 @@
-import { HttpModService } from '../services/http-mod.service';
+import { ApiCallService } from '../services/api-call.service';
 import { CreateOrderService } from '../services/create-order.service';
 import { Component, ViewEncapsulation } from '@angular/core';
 import Keyboard from 'simple-keyboard';
 import { Router } from '@angular/router';
 import { Tarif } from '../entities/tarif/tarif';
+import { GpsPosition } from '../entities/getAddress/address';
+import { stringify } from '@angular/compiler/src/util';
+import { GpsPositionService } from '../services/gps-position.service';
 
 @Component({
   selector: 'app-order-details',
@@ -13,12 +16,13 @@ import { Tarif } from '../entities/tarif/tarif';
 })
 export class OrderDetailsComponent {
 
-  startPoint = this.createOrder.startingPoint;
+  startPoint = this.createOrder.order.params.route[0].address.name;
   keyboard: Keyboard;
   dest = '';
   tarif: Tarif = new Tarif();
+  location: GpsPosition;
 
-  constructor(private createOrder: CreateOrderService, private toApi: HttpModService, private router: Router) { }
+  constructor(private createOrder: CreateOrderService, private toApi: ApiCallService, private router: Router, private position: GpsPositionService) { }
 
   onInputFocus() {
     this.keyboard = new Keyboard({
@@ -39,20 +43,27 @@ export class OrderDetailsComponent {
   }
 
   onReturn() {
-    return this.dest = '';
+    this.dest = '';
+    this.router.navigate(['/phone']);
   }
-
-  create(): void {
-    this.createOrder.setAddressB(this.dest);
-    console.log(JSON.stringify(this.createOrder.order));
-    this.toApi.createOrder(this.createOrder.order).subscribe(response => {
-      console.log(JSON.stringify(response));
-      this.toApi.driver.params.orderId = response.result;
-      this.router.navigate(['/response']);
-    }, error => {
-      this.toApi.handleErrorObservable(error);
-      this.router.navigate(['/welcome']);
-    });
+ 
+  setAddress() {
+    this.position.geocodeAddress(this.dest)
+    .subscribe((location: GpsPosition) => {
+        this.location = location;
+        this.createOrder.setAddress(this.dest, location.lat, location.lon);
+        this.toApi.createOrder(this.createOrder.order).subscribe(response => {
+          this.toApi.driver.params.orderId = response.result;
+          this.router.navigate(['/order']);
+        }, error => {
+          this.toApi.handleError(error);
+          this.router.navigate(['/phone']);
+        });
+      }, error => {
+        this.toApi.handleError(error);
+        this.router.navigate(['/phone']);   
+      }   
+    );     
   }
 
   setTarif(id: number) {

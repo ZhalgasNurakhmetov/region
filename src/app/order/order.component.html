@@ -5,12 +5,12 @@
 
 <div class="responseContent" *ngIf="driver">
   <div class="carDetails">
-    <p id="recepientOrder">Ваш заказ: </p><p id="recepientID">7897897897989</p>
-    <p id="orderDriver">К вам едет: <br><span style="font-size: 5vh; color: black;">Zhalgas Nurakhmetov</span> </p>
+    <p id="recepientOrder">Ваш заказ: </p><p id="recepientID">{{orderID}}</p>
+    <p id="orderDriver">К вам едет: <br><span style="font-size: 5vh; color: black;">{{driver.firstName}} {{driver.lastName}}</span> </p>
     <div class="nCar">
       <img src="../../assets/kz.png">
       <div class="serialNumber">
-        <p id="carNumber">555 ABS 01</p>
+        <p id="carNumber">{{driver.phone}}</p>
       </div>
     </div>
     <hr class="separate">

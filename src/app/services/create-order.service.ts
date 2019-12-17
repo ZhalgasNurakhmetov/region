@@ -1,7 +1,6 @@
-import { ClientAddress } from './../entities/getAddress/address';
+import { ClientAddress, GpsPosition } from './../entities/getAddress/address';
 import { Order } from '../entities/createOrder/createOrder';
 import { Injectable } from '@angular/core';
-
 
 @Injectable({
   providedIn: 'root'
@@ -9,25 +8,16 @@ import { Injectable } from '@angular/core';
 export class CreateOrderService {
 
   order =  new Order();
-  startingPoint = '';
 
   constructor() { }
 
-  setAddressA(addressValue: string, lat = '', lon = '') {
+  setAddress(addressValue: string, lat = 0, lon = 0) {
     const address = new ClientAddress();
     address.address.name = addressValue;
-    address.address.position.lat = parseFloat(lat);
-    address.address.position.lon = parseFloat(lon);
+    address.address.position.lat = lat;
+    address.address.position.lon = lon;
     return this.order.params.route.push(address);
   }
-
-  setAddressB(addressValue: string) {
-    const address = new ClientAddress();
-    address.address.name = addressValue;
-
-    return this.order.params.route.push(address);
-  }
-
 
   setPhone(phone: string) {
     return this.order.params.phone = phone;
@@ -40,5 +30,4 @@ export class CreateOrderService {
   resetAddress() {
     return this.order.params.route[1].address.name = '';
   }
-
 }
