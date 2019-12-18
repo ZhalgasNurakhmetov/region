@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Tarif } from '../entities/tarif/tarif';
 import { GpsPosition } from '../entities/getAddress/address';
 import { GpsPositionService } from '../services/gps-position.service';
+import alphabetic from '../alphabetic';
 
 @Component({
   selector: 'app-order-details',
@@ -27,6 +28,7 @@ export class OrderDetailsComponent {
     this.keyboard = new Keyboard({
           onChange: input => this.onChange(input),
           onKeyPress: button => this.onKeyPress(button),
+          layout: alphabetic
         });
     }
 
@@ -45,7 +47,7 @@ export class OrderDetailsComponent {
     this.dest = '';
     this.router.navigate(['/phone']);
   }
- 
+
   setAddress() {
     this.position.geocodeAddress(this.dest)
     .subscribe((location: GpsPosition) => {
@@ -60,9 +62,9 @@ export class OrderDetailsComponent {
         });
       }, error => {
         this.toApi.handleError(error);
-        this.router.navigate(['/phone']);   
-      }   
-    );     
+        this.router.navigate(['/phone']);
+      }
+    );
   }
 
   setTarif(id: number) {
