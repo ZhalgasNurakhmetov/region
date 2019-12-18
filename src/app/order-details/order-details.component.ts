@@ -5,7 +5,6 @@ import Keyboard from 'simple-keyboard';
 import { Router } from '@angular/router';
 import { Tarif } from '../entities/tarif/tarif';
 import { GpsPosition } from '../entities/getAddress/address';
-import { stringify } from '@angular/compiler/src/util';
 import { GpsPositionService } from '../services/gps-position.service';
 
 @Component({

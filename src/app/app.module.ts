@@ -26,8 +26,6 @@ import { AgmCoreModule } from '@agm/core';
     HttpClientModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      // please get your own API key here:
-      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
       apiKey: 'AIzaSyBMqkcDsOHdSHcCvxtFXCPnd2ITgdNANmw'
     })
   ],

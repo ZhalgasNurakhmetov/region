@@ -3,29 +3,24 @@
     <div class="api">
       <label>Api URL</label>
       <input type="text" required [(ngModel)]="apiUrl" on-focus="onInputFocus(1)" on-focusout="onFocusOut(1)" name="api" #apiURL='ngModel'>
-      {{apiUrl}}
     </div>
     <div class="point">
       <label>Отправная точка</label>
       <input name="point" type="text" on-focus="onInputFocus(2)" on-focusout="onFocusOut(2)" required [(ngModel)]="pointA" #point="ngModel">
-      {{pointA}}
     </div>
     <div class="position">
       <div class="lat">
         <label>Lat</label>
         <input type="text" required [(ngModel)]="lat" on-focus="onInputFocus(3)" on-focusout="onFocusOut(3)" name="lattitude" #lattitude="ngModel">
-        {{lat}}
       </div>
       <div class="lon">
         <label>Lon</label>
         <input type="text" required [(ngModel)]="lon" on-focus="onInputFocus(4)" on-focusout="onFocusOut(4)" name="longitude" #longitude="ngModel">
-        {{lon}}
       </div>
     </div>
     <div class="fareId">
       <label>FareID</label>
       <input type="text" required [(ngModel)]="fareId" on-focus="onInputFocus(5)" on-focusout="onFocusOut(5)" name="fareID" #fareID="ngModel">
-      {{fareId}}
     </div>
     <div class="scale">
       <label class="container"><span style="font-size: 3vh;">1024x768</span>

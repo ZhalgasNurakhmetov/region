@@ -11,6 +11,7 @@ declare var google: any;
 export class GpsPositionService {
 
   constructor() { }
+  
   private geocoder = new google.maps.Geocoder();
  
   geocodeAddress(location: string): Observable<GpsPosition> {
