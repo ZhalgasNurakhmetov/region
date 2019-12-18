@@ -38,7 +38,6 @@ export class StartComponent {
 
   setPhoneNumber(): void {
     this.createOrder.setPhone(this.phone);
-    this.router.navigate(['/address
-    ']);
+    this.router.navigate(['/address']);
   }
 }
